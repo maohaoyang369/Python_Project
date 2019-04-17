@@ -20,7 +20,7 @@ def get_urls(url):
             if '台湾' in link.text:
                 if link["href"][0] == "/":
                     print(link["href"])
-                    urls.append("https://you.ctrip.com/" + link["href"])
+                    urls.append("https://you.ctrip.com" + link["href"])
                 else:
                     urls.append(link["href"])
         except:
@@ -29,6 +29,9 @@ def get_urls(url):
     return urls
 
 
-urls = get_urls("https://you.ctrip.com/searchsite/Travels?query=%25e5%258f%25b0%25e6%25b9%25be")
+for i in range(1, 5):
+    urls = get_urls("https://you.ctrip.com/searchsite/travels/?query=%E5%8F%B0%E6%B9%BE&isAnswered=&isRecommended=&publishDate=&" + "PageNo=%i" % i)
+
 # urls = get_urls("http://www.baidu.com")
+
 print(urls)
